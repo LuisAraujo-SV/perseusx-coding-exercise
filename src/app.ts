@@ -7,6 +7,6 @@ const app = express();
 app.use(express.json());
 
 // Register routes
-app.use("/people", peopleRouter);
+app.use("/api/v1/people", peopleRouter);
 
 export default app;

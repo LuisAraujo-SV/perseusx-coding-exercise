@@ -33,9 +33,8 @@ export const getAllPeople = (req: Request, res: Response) => {
 
 // Update all records with the current date
 export const updatePeopleDate = (req: Request, res: Response) => {
-  const currentDate = new Date().toLocaleDateString(); // D/M/YYYY format
   people.forEach((person) => {
-    person.dateAdded = currentDate;
+    person.dateAdded = new Date();
   });
   res.json({ message: "Records updated with the current date.", people });
 };
@@ -55,7 +54,7 @@ export const getActivePeople = (req: Request, res: Response) => {
 // Add a new person
 export const addPerson = (req: Request, res: Response) => {
   const newPerson: Person = req.body;
-  newPerson.dateAdded =  new Date().toLocaleDateString(); // D/M/YYYY format
+  newPerson.dateAdded =  new Date(); // D/M/YYYY format
   people.push(newPerson);
   res.status(201).json({ message: "Person added successfully.", newPerson });
 };

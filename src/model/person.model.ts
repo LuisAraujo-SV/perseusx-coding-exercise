@@ -4,5 +4,5 @@ export interface Person {
   favoriteFood: string;
   favoriteMovie: string;
   isActive: boolean;
-  dateAdded?: string;
+  dateAdded?: Date;
 }
