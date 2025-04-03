@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "24b90a25-5366-4146-935f-dee53bb0d726",
+		"name": "perseusx-coding-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42448643"
+	},
+	"item": [
+		{
+			"name": "people",
+			"item": [
+				{
+					"name": "people",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sorted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people?sortBy=name&order=desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "name"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-date",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people/update-date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people",
+								"update-date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "active",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people",
+								"active"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "favoriteFood",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Manuel Enrique Araujo\",\r\n    \"favoriteMovie\": \"Spiderman\",\r\n    \"favoriteFood\": \"Camperitos\",\r\n    \"isActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

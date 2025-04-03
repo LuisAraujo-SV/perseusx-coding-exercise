@@ -68,6 +68,8 @@ Ensure you have these installed to run the project successfully.
 
 For detailed API documentation, including available endpoints, request/response schemas, and example usage, please refer to the [Swagger Documentation](http://localhost:3000/api-docs). The Swagger UI provides an interactive interface to explore and test the API.
 
+Additionally, you can find a Postman collection for testing the API in the [`src/docs/postman/perseusx-coding-challenge.postman_collection`](src/docs/postman/perseusx-coding-challenge.postman_collection.json) directory. Import the collection into Postman to quickly test the available endpoints.
+
 ## Improvements
 This project is a great starting point, but there are several areas for improvement:
 
