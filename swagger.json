@@ -1,0 +1,188 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PerseusX API",
+    "version": "1.0.0",
+    "description": "API documentation for the PerseusX Coding Exercise."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/api/v1/people": {
+      "get": {
+        "summary": "Retrieve all people",
+        "description": "Retrieve all people with optional sorting by query parameters.",
+        "parameters": [
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "The property to sort by (e.g., name, favoriteFood, favoriteMovie, isActive).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["name", "favoriteFood", "favoriteMovie", "isActive"]
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "The order of sorting (asc or desc).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["asc", "desc"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of people.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new person",
+        "description": "Add a new person to the database.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "favoriteFood": {
+                    "type": "string"
+                  },
+                  "favoriteMovie": {
+                    "type": "string"
+                  },
+                  "isActive": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "name",
+                  "favoriteFood",
+                  "favoriteMovie",
+                  "isActive"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Person added successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/people/active": {
+      "get": {
+        "summary": "Retrieve active people",
+        "description": "Retrieve all active people with optional sorting by query parameters.",
+        "parameters": [
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "The property to sort by (e.g., name, favoriteFood, favoriteMovie, isActive).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["name", "favoriteFood", "favoriteMovie", "isActive"]
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "The order of sorting (asc or desc).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["asc", "desc"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of active people.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No active records found."
+          }
+        }
+      }
+    },
+    "/api/v1/people/update-date": {
+      "patch": {
+        "summary": "Update all records with the current date",
+        "description": "Update the dateAdded field for all records to the current date.",
+        "responses": {
+          "204": {
+            "description": "No content."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Person": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "favoriteFood": {
+            "type": "string"
+          },
+          "favoriteMovie": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["name", "favoriteFood", "favoriteMovie", "isActive"]
+      }
+    }
+  }
+}
