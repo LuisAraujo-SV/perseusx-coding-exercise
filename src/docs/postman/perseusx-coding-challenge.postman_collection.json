@@ -124,7 +124,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Manuel Enrique Araujo\",\r\n    \"favoriteMovie\": \"Spiderman\",\r\n    \"favoriteFood\": \"Camperitos\",\r\n    \"isActive\": false\r\n}",
+							"raw": "{\r\n    \"name\": \"Manuel Enrique Araujo\",\r\n    \"favoriteMovie\": \"Spiderman\",\r\n    \"favoriteFood\": \"Camperitos\",\r\n    \"isActive\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
